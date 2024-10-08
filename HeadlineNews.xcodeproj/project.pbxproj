@@ -13,6 +13,12 @@
 		B8C77AE22CB4C3A0003FBB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77ADA2CB4C3A0003FBB9C /* SceneDelegate.swift */; };
 		B8C77AE32CB4C3A0003FBB9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77ADB2CB4C3A0003FBB9C /* ViewController.swift */; };
 		B8C77AE72CB4C48E003FBB9C /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8C77AE62CB4C48E003FBB9C /* PretendardVariable.ttf */; };
+		B8C77AED2CB4C9F5003FBB9C /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AEC2CB4C9F5003FBB9C /* UIFont.swift */; };
+		B8C77AEF2CB4CA13003FBB9C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AEE2CB4CA13003FBB9C /* UIColor.swift */; };
+		B8C77AF12CB4CA33003FBB9C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AF02CB4CA33003FBB9C /* Constants.swift */; };
+		B8C77AF42CB4D1AE003FBB9C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B8C77AF32CB4D1AE003FBB9C /* SnapKit */; };
+		B8C77AF62CB4D9F1003FBB9C /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AF52CB4D9F1003FBB9C /* UICollectionViewCell.swift */; };
+		B8C77AF82CB4DAAE003FBB9C /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AF72CB4DAAE003FBB9C /* CustomLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,11 @@
 		B8C77ADA2CB4C3A0003FBB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B8C77ADB2CB4C3A0003FBB9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B8C77AE62CB4C48E003FBB9C /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
+		B8C77AEC2CB4C9F5003FBB9C /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		B8C77AEE2CB4CA13003FBB9C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		B8C77AF02CB4CA33003FBB9C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B8C77AF52CB4D9F1003FBB9C /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		B8C77AF72CB4DAAE003FBB9C /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C77AF42CB4D1AE003FBB9C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,11 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				B8C77AE52CB4C44E003FBB9C /* Font */,
+				B8C77ADA2CB4C3A0003FBB9C /* SceneDelegate.swift */,
 				B8C77AD32CB4C3A0003FBB9C /* AppDelegate.swift */,
 				B8C77AD42CB4C3A0003FBB9C /* Assets.xcassets */,
 				B8C77AD52CB4C3A0003FBB9C /* Info.plist */,
 				B8C77AD72CB4C3A0003FBB9C /* LaunchScreen.storyboard */,
-				B8C77ADA2CB4C3A0003FBB9C /* SceneDelegate.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -88,6 +100,8 @@
 		B8C77AE92CB4C524003FBB9C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B8C77AF02CB4CA33003FBB9C /* Constants.swift */,
+				B8C77AF72CB4DAAE003FBB9C /* CustomLabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -103,6 +117,9 @@
 		B8C77AEB2CB4C53E003FBB9C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B8C77AEC2CB4C9F5003FBB9C /* UIFont.swift */,
+				B8C77AEE2CB4CA13003FBB9C /* UIColor.swift */,
+				B8C77AF52CB4D9F1003FBB9C /* UICollectionViewCell.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -124,6 +141,7 @@
 			);
 			name = HeadlineNews;
 			packageProductDependencies = (
+				B8C77AF32CB4D1AE003FBB9C /* SnapKit */,
 			);
 			productName = HeadlineNews;
 			productReference = B8C77ABB2CB4C395003FBB9C /* HeadlineNews.app */;
@@ -153,6 +171,9 @@
 			);
 			mainGroup = B8C77AB22CB4C395003FBB9C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B8C77AF22CB4D1AE003FBB9C /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B8C77ABC2CB4C395003FBB9C /* Products */;
 			projectDirPath = "";
@@ -181,9 +202,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C77AED2CB4C9F5003FBB9C /* UIFont.swift in Sources */,
+				B8C77AF62CB4D9F1003FBB9C /* UICollectionViewCell.swift in Sources */,
 				B8C77AE12CB4C3A0003FBB9C /* AppDelegate.swift in Sources */,
 				B8C77AE22CB4C3A0003FBB9C /* SceneDelegate.swift in Sources */,
 				B8C77AE32CB4C3A0003FBB9C /* ViewController.swift in Sources */,
+				B8C77AEF2CB4CA13003FBB9C /* UIColor.swift in Sources */,
+				B8C77AF12CB4CA33003FBB9C /* Constants.swift in Sources */,
+				B8C77AF82CB4DAAE003FBB9C /* CustomLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B8C77AF22CB4D1AE003FBB9C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B8C77AF32CB4D1AE003FBB9C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8C77AF22CB4D1AE003FBB9C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B8C77AB32CB4C395003FBB9C /* Project object */;
 }
