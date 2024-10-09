@@ -11,7 +11,7 @@
 		B8C77ADF2CB4C3A0003FBB9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C77AD72CB4C3A0003FBB9C /* LaunchScreen.storyboard */; };
 		B8C77AE12CB4C3A0003FBB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AD32CB4C3A0003FBB9C /* AppDelegate.swift */; };
 		B8C77AE22CB4C3A0003FBB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77ADA2CB4C3A0003FBB9C /* SceneDelegate.swift */; };
-		B8C77AE32CB4C3A0003FBB9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77ADB2CB4C3A0003FBB9C /* ViewController.swift */; };
+		B8C77AE32CB4C3A0003FBB9C /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77ADB2CB4C3A0003FBB9C /* NewsViewController.swift */; };
 		B8C77AE72CB4C48E003FBB9C /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8C77AE62CB4C48E003FBB9C /* PretendardVariable.ttf */; };
 		B8C77AED2CB4C9F5003FBB9C /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AEC2CB4C9F5003FBB9C /* UIFont.swift */; };
 		B8C77AEF2CB4CA13003FBB9C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AEE2CB4CA13003FBB9C /* UIColor.swift */; };
@@ -19,6 +19,7 @@
 		B8C77AF42CB4D1AE003FBB9C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B8C77AF32CB4D1AE003FBB9C /* SnapKit */; };
 		B8C77AF62CB4D9F1003FBB9C /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AF52CB4D9F1003FBB9C /* UICollectionViewCell.swift */; };
 		B8C77AF82CB4DAAE003FBB9C /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AF72CB4DAAE003FBB9C /* CustomLabel.swift */; };
+		B8C77AFE2CB5045D003FBB9C /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AFD2CB5045D003FBB9C /* NewsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,13 +29,14 @@
 		B8C77AD52CB4C3A0003FBB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8C77AD62CB4C3A0003FBB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8C77ADA2CB4C3A0003FBB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B8C77ADB2CB4C3A0003FBB9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B8C77ADB2CB4C3A0003FBB9C /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		B8C77AE62CB4C48E003FBB9C /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
 		B8C77AEC2CB4C9F5003FBB9C /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		B8C77AEE2CB4CA13003FBB9C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B8C77AF02CB4CA33003FBB9C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B8C77AF52CB4D9F1003FBB9C /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		B8C77AF72CB4DAAE003FBB9C /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		B8C77AFD2CB5045D003FBB9C /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +111,8 @@
 		B8C77AEA2CB4C532003FBB9C /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				B8C77ADB2CB4C3A0003FBB9C /* ViewController.swift */,
+				B8C77ADB2CB4C3A0003FBB9C /* NewsViewController.swift */,
+				B8C77AFD2CB5045D003FBB9C /* NewsCell.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -203,10 +206,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8C77AED2CB4C9F5003FBB9C /* UIFont.swift in Sources */,
+				B8C77AFE2CB5045D003FBB9C /* NewsCell.swift in Sources */,
 				B8C77AF62CB4D9F1003FBB9C /* UICollectionViewCell.swift in Sources */,
 				B8C77AE12CB4C3A0003FBB9C /* AppDelegate.swift in Sources */,
 				B8C77AE22CB4C3A0003FBB9C /* SceneDelegate.swift in Sources */,
-				B8C77AE32CB4C3A0003FBB9C /* ViewController.swift in Sources */,
+				B8C77AE32CB4C3A0003FBB9C /* NewsViewController.swift in Sources */,
 				B8C77AEF2CB4CA13003FBB9C /* UIColor.swift in Sources */,
 				B8C77AF12CB4CA33003FBB9C /* Constants.swift in Sources */,
 				B8C77AF82CB4DAAE003FBB9C /* CustomLabel.swift in Sources */,
