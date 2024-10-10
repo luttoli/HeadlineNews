@@ -9,7 +9,10 @@ import UIKit
 
 class NewsCell: UICollectionViewCell {
     // MARK: - Components
-    var label = CustomLabel(title: "", size: Constants.size.size14, weight: .Regular, color: .text.black)
+    var urlImage = UIImageView()
+    var title = CustomLabel(title: "", size: Constants.size.size14, weight: .SemiBold, color: .text.black)
+    var name = CustomLabel(title: "", size: Constants.size.size12, weight: .SemiBold, color: .text.darkGray)
+    var publishedAt = CustomLabel(title: "", size: Constants.size.size12, weight: .Regular, color: .text.darkGray)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,10 +27,33 @@ class NewsCell: UICollectionViewCell {
 // MARK: - SetUp
 private extension NewsCell {
     func setUp() {
-        contentView.addSubview(label)
+        contentView.addSubview(urlImage)
+        contentView.addSubview(title)
+        contentView.addSubview(name)
+        contentView.addSubview(publishedAt)
         
-        label.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+        urlImage.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(10)
+            $0.width.height.equalTo(100)
         }
+        
+        title.snp.makeConstraints {
+            $0.top.equalTo(urlImage.snp.top).offset(10)
+            $0.leading.equalTo(urlImage.snp.trailing).offset(10)
+            $0.trailing.equalToSuperview().offset(-10)
+        }
+        title.numberOfLines = 0
+        
+        name.snp.makeConstraints {
+            $0.leading.equalTo(urlImage.snp.trailing).offset(10)
+            $0.bottom.equalTo(urlImage.snp.bottom).offset(-10)
+        }
+        
+        publishedAt.snp.makeConstraints {
+            $0.centerY.equalTo(name)
+            $0.leading.equalTo(name.snp.trailing).offset(10)
+        }
+        
     }
 }

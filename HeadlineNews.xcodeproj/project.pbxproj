@@ -20,6 +20,7 @@
 		B8C77AF62CB4D9F1003FBB9C /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AF52CB4D9F1003FBB9C /* UICollectionViewCell.swift */; };
 		B8C77AF82CB4DAAE003FBB9C /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AF72CB4DAAE003FBB9C /* CustomLabel.swift */; };
 		B8C77AFE2CB5045D003FBB9C /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AFD2CB5045D003FBB9C /* NewsCell.swift */; };
+		B8C77B012CB6E014003FBB9C /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77B002CB6E014003FBB9C /* News.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		B8C77AF52CB4D9F1003FBB9C /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		B8C77AF72CB4DAAE003FBB9C /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B8C77AFD2CB5045D003FBB9C /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		B8C77B002CB6E014003FBB9C /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C77AEA2CB4C532003FBB9C /* Scene */,
+				B8C77AFF2CB6DFF3003FBB9C /* Model */,
 				B8C77AE92CB4C524003FBB9C /* Utils */,
 				B8C77AEB2CB4C53E003FBB9C /* Extension */,
 				B8C77AE42CB4C423003FBB9C /* Resource */,
@@ -125,6 +128,14 @@
 				B8C77AF52CB4D9F1003FBB9C /* UICollectionViewCell.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B8C77AFF2CB6DFF3003FBB9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B8C77B002CB6E014003FBB9C /* News.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 				B8C77AE32CB4C3A0003FBB9C /* NewsViewController.swift in Sources */,
 				B8C77AEF2CB4CA13003FBB9C /* UIColor.swift in Sources */,
 				B8C77AF12CB4CA33003FBB9C /* Constants.swift in Sources */,
+				B8C77B012CB6E014003FBB9C /* News.swift in Sources */,
 				B8C77AF82CB4DAAE003FBB9C /* CustomLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

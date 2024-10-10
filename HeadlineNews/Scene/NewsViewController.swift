@@ -12,9 +12,8 @@ import SnapKit
 class NewsViewController: UIViewController {
     // MARK: - Properties
     
-    
     // MARK: - Components
-    var newsItems = Array(1...37).map { "\($0)" }
+    var newsItems: [Article] = []
     
     let newsCollectionView: UICollectionView = {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
@@ -47,6 +46,7 @@ extension NewsViewController {
         
         navigationUI()
         setUp()
+        fetchNewsData()
     }
     
     override func viewWillLayoutSubviews() {
@@ -100,16 +100,47 @@ private extension NewsViewController {
             return section
         } else {
             // 세로 모드
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(Constants.size.size120))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(180))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(Constants.size.size120))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(180))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let section = NSCollectionLayoutSection(group: group)
             return section
         }
+    }
+    
+    func fetchNewsData() {
+        let urls = "https://newsapi.org/v2/top-headlines?country=us&apiKey=9c786eb5cd5a4ea48ebf3dcc22bc1884"
+        guard let url = URL(string: urls) else { return }
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: url) { [weak self] (data, response, error) in
+            if let error = error {
+                print("Error fetching news: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data found")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let newsResponse = try decoder.decode(News.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self?.newsItems = newsResponse.articles
+                    self?.newsCollectionView.reloadData()
+                }
+            } catch {
+                print("Error decoding JSON: \(error.localizedDescription)")
+            }
+        }
+        dataTask.resume()
     }
 }
 
@@ -130,8 +161,33 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let itemIndex = indexPath.section * 5 + indexPath.row
         cell.backgroundColor = .lightGray
-        cell.label.text = newsItems[itemIndex]
+        
+        let article = newsItems[itemIndex]
+            
+        cell.backgroundColor = .lightGray
+        cell.title.text = article.title
+        cell.name.text = article.source.name ?? "Unknown Author"
+        cell.publishedAt.text = article.publishedAt
+
+        // 이미지 로딩
+        if let imageUrl = article.urlToImage, let url = URL(string: imageUrl) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data, error == nil {
+                    DispatchQueue.main.async {
+                        if let updateCell = collectionView.cellForItem(at: indexPath) as? NewsCell {
+                            updateCell.urlImage.image = UIImage(data: data)
+                        }
+                    }
+                }
+            }.resume()
+        } else {
+            cell.urlImage.image = UIImage(named: "placeholder")
+        }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
     }
 }
