@@ -167,7 +167,7 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.title.text = article.title
         cell.name.text = article.source.name ?? "Unknown Author"
-        cell.publishedAt.text = article.publishedAt
+        cell.publishedAt.text = article.publishedAt?.toDate()?.toStringDetail()
 
         // 이미지 로딩
         if let imageUrl = article.urlToImage, let url = URL(string: imageUrl) {
