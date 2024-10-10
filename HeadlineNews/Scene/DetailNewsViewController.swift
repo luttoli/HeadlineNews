@@ -8,13 +8,15 @@
 import UIKit
 
 import SnapKit
+import WebKit
 
-class DetailNewsViewController: UIViewController {
+class DetailNewsViewController: UIViewController, WKNavigationDelegate {
     // MARK: - Properties
-    
+    var url: URL?
+    var newsTitle: String?
     
     // MARK: - Components
-    
+    private var webView: WKWebView!
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +35,17 @@ extension DetailNewsViewController {
         
         view.backgroundColor = .white
         
+        let configuration = WKWebViewConfiguration()
+        configuration.allowsInlineMediaPlayback = true
+        configuration.allowsPictureInPictureMediaPlayback = true
+        webView = WKWebView(frame: view.bounds, configuration: configuration)
+        webView.navigationDelegate = self
+        
+        if let url = url {
+            let request = URLRequest(url: url)
+            webView.load(request)
+        }
+        
         navigationUI()
         setUp()
     }
@@ -42,6 +55,12 @@ extension DetailNewsViewController {
 extension DetailNewsViewController {
     func navigationUI() {
         navigationController?.navigationBar.barTintColor = .background.white
+    
+        let titleLabel = UILabel()
+        titleLabel.text = self.newsTitle ?? ""
+        titleLabel.font = UIFont.toPretendard(size: Constants.size.size14, weight: .SemiBold)
+        titleLabel.textColor = .text.black
+        navigationItem.titleView = titleLabel
         
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = .text.black
@@ -51,7 +70,11 @@ extension DetailNewsViewController {
 // MARK: - SetUp
 private extension DetailNewsViewController {
     func setUp() {
+        view.addSubview(webView)
         
+        webView.snp.makeConstraints {
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
     }
 }
 

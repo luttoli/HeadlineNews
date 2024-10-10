@@ -21,7 +21,7 @@ class NewsViewController: UIViewController {
         }
         let newsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         newsCollectionView.register(NewsCell.self, forCellWithReuseIdentifier: NewsCell.identifier)
-        newsCollectionView.backgroundColor = .yellow
+        newsCollectionView.backgroundColor = .clear
         newsCollectionView.showsVerticalScrollIndicator = false
         newsCollectionView.showsHorizontalScrollIndicator = false
         return newsCollectionView
@@ -160,11 +160,11 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.identifier, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
         
         let itemIndex = indexPath.section * 5 + indexPath.row
-        cell.backgroundColor = .lightGray
+        cell.backgroundColor = .cell.lightGray
+        cell.layer.cornerRadius = Constants.radius.px10
         
-        let article = newsItems[itemIndex]
-            
-        cell.backgroundColor = .lightGray
+        let article = newsItems[itemIndex]    
+        
         cell.title.text = article.title
         cell.name.text = article.source.name ?? "Unknown Author"
         cell.publishedAt.text = article.publishedAt
@@ -181,13 +181,13 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             }.resume()
         } else {
-            cell.urlImage.image = UIImage(named: "placeholder")
+            cell.urlImage.image = UIImage(systemName: "newspaper")
         }
         
         if selectedIndexPaths.contains(indexPath) {
-            cell.title.textColor = .text.red  // 선택된 경우 빨간색
+            cell.title.textColor = .text.red
         } else {
-            cell.title.textColor = .text.black  // 선택되지 않은 경우 검은색
+            cell.title.textColor = .text.black
         }
         
         return cell
@@ -196,8 +196,9 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPaths.insert(indexPath)
         collectionView.reloadItems(at: [indexPath])
-
-        let detailNewsViewController = DetailNewsViewController()
-        navigationController?.pushViewController(detailNewsViewController, animated: true)
+        
+        let itemIndex = indexPath.section * 5 + indexPath.row
+        let article = newsItems[itemIndex]
+        webView(from: self, urlString: article.url ?? "", newsTitle: article.title ?? "")
     }
 }

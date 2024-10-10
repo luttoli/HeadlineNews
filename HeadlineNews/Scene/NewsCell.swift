@@ -12,6 +12,7 @@ class NewsCell: UICollectionViewCell {
     var urlImage = UIImageView()
     var title = CustomLabel(title: "", size: Constants.size.size14, weight: .SemiBold, color: .text.black)
     var name = CustomLabel(title: "", size: Constants.size.size12, weight: .SemiBold, color: .text.darkGray)
+    var mark = CustomLabel(title: "•", size: Constants.size.size14, weight: .Regular, color: .text.darkGray)
     var publishedAt = CustomLabel(title: "", size: Constants.size.size12, weight: .Regular, color: .text.darkGray)
     
     override init(frame: CGRect) {
@@ -30,30 +31,37 @@ private extension NewsCell {
         contentView.addSubview(urlImage)
         contentView.addSubview(title)
         contentView.addSubview(name)
+        contentView.addSubview(mark)
         contentView.addSubview(publishedAt)
         
         urlImage.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(10)
-            $0.width.height.equalTo(100)
+            $0.leading.equalToSuperview().offset(Constants.spacing.px10)
+            $0.width.height.equalTo(Constants.size.size100)
         }
+        urlImage.tintColor = .image.darkGray
+        urlImage.layer.cornerRadius = Constants.radius.px6
         
         title.snp.makeConstraints {
-            $0.top.equalTo(urlImage.snp.top).offset(10)
-            $0.leading.equalTo(urlImage.snp.trailing).offset(10)
-            $0.trailing.equalToSuperview().offset(-10)
+            $0.top.equalTo(urlImage.snp.top).offset(Constants.spacing.px4)
+            $0.leading.equalTo(urlImage.snp.trailing).offset(Constants.spacing.px10)
+            $0.trailing.equalToSuperview().offset(-Constants.spacing.px10)
         }
         title.numberOfLines = 0
         
         name.snp.makeConstraints {
-            $0.leading.equalTo(urlImage.snp.trailing).offset(10)
-            $0.bottom.equalTo(urlImage.snp.bottom).offset(-10)
+            $0.leading.equalTo(urlImage.snp.trailing).offset(Constants.spacing.px10)
+            $0.bottom.equalTo(urlImage.snp.bottom).offset(-Constants.spacing.px4)
+        }
+        
+        mark.snp.makeConstraints {
+            $0.centerY.equalTo(name)
+            $0.leading.equalTo(name.snp.trailing).offset(Constants.spacing.px4)
         }
         
         publishedAt.snp.makeConstraints {
             $0.centerY.equalTo(name)
-            $0.leading.equalTo(name.snp.trailing).offset(10)
+            $0.leading.equalTo(mark.snp.trailing).offset(Constants.spacing.px4)
         }
-        
     }
 }
