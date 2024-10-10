@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B898A5642CB7A1E00054DE8D /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898A5632CB7A1E00054DE8D /* DetailNewsViewController.swift */; };
 		B8C77ADD2CB4C3A0003FBB9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8C77AD42CB4C3A0003FBB9C /* Assets.xcassets */; };
 		B8C77ADF2CB4C3A0003FBB9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C77AD72CB4C3A0003FBB9C /* LaunchScreen.storyboard */; };
 		B8C77AE12CB4C3A0003FBB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AD32CB4C3A0003FBB9C /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B898A5632CB7A1E00054DE8D /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		B8C77ABB2CB4C395003FBB9C /* HeadlineNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadlineNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8C77AD32CB4C3A0003FBB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8C77AD42CB4C3A0003FBB9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				B8C77ADB2CB4C3A0003FBB9C /* NewsViewController.swift */,
 				B8C77AFD2CB5045D003FBB9C /* NewsCell.swift */,
+				B898A5632CB7A1E00054DE8D /* DetailNewsViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				B8C77AF62CB4D9F1003FBB9C /* UICollectionViewCell.swift in Sources */,
 				B8C77AE12CB4C3A0003FBB9C /* AppDelegate.swift in Sources */,
 				B8C77AE22CB4C3A0003FBB9C /* SceneDelegate.swift in Sources */,
+				B898A5642CB7A1E00054DE8D /* DetailNewsViewController.swift in Sources */,
 				B8C77AE32CB4C3A0003FBB9C /* NewsViewController.swift in Sources */,
 				B8C77AEF2CB4CA13003FBB9C /* UIColor.swift in Sources */,
 				B8C77AF12CB4CA33003FBB9C /* Constants.swift in Sources */,

@@ -11,10 +11,10 @@ import SnapKit
 
 class NewsViewController: UIViewController {
     // MARK: - Properties
+    var newsItems: [Article] = []
+    var selectedIndexPaths: Set<IndexPath> = []
     
     // MARK: - Components
-    var newsItems: [Article] = []
-    
     let newsCollectionView: UICollectionView = {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
             return NewsViewController.createSectionLayout(for: environment)
@@ -184,10 +184,20 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.urlImage.image = UIImage(named: "placeholder")
         }
         
+        if selectedIndexPaths.contains(indexPath) {
+            cell.title.textColor = .text.red  // 선택된 경우 빨간색
+        } else {
+            cell.title.textColor = .text.black  // 선택되지 않은 경우 검은색
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        selectedIndexPaths.insert(indexPath)
+        collectionView.reloadItems(at: [indexPath])
+
+        let detailNewsViewController = DetailNewsViewController()
+        navigationController?.pushViewController(detailNewsViewController, animated: true)
     }
 }
