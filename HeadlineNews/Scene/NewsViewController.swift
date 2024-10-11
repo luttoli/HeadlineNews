@@ -110,34 +110,17 @@ private extension NewsViewController {
     }
     
     func fetchNewsData() {
-        let urls = "https://newsapi.org/v2/top-headlines?country=us&apiKey=9c786eb5cd5a4ea48ebf3dcc22bc1884"
-        guard let url = URL(string: urls) else { return }
-        
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: url) { [weak self] (data, response, error) in
-            if let error = error {
-                print("Error fetching news: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("No data found")
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let newsResponse = try decoder.decode(News.self, from: data)
-                
+        NewsService.shared.fetchNewsData { [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.newsItems = articles
                 DispatchQueue.main.async {
-                    self?.newsItems = newsResponse.articles
                     self?.newsCollectionView.reloadData()
                 }
-            } catch {
-                print("Error decoding JSON: \(error.localizedDescription)")
+            case .failure(let error):
+                print("Error fetching news: \(error.localizedDescription)")
             }
         }
-        dataTask.resume()
     }
 }
 
