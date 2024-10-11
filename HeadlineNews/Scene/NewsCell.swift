@@ -40,6 +40,7 @@ private extension NewsCell {
             $0.width.height.equalTo(Constants.size.size100)
         }
         urlImage.tintColor = .image.darkGray
+        urlImage.clipsToBounds = true
         urlImage.layer.cornerRadius = Constants.radius.px6
         
         title.snp.makeConstraints {
