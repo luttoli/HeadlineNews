@@ -84,27 +84,24 @@ private extension NewsViewController {
         let isLandscape = environment.container.effectiveContentSize.width > environment.container.effectiveContentSize.height
         
         if isLandscape {
-            // 가로 모드
             let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(Constants.size.size300), heightDimension: .absolute(Constants.size.size120))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(Constants.size.size300 * 5 + 20), heightDimension: .absolute(Constants.size.size120))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(Constants.size.size300 * 5 + 10 * 4), heightDimension: .absolute(Constants.size.size120))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            group.interItemSpacing = .fixed(5)
+            group.interItemSpacing = .fixed(10)
             
             let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
             section.orthogonalScrollingBehavior = .continuous
-            
             return section
         } else {
-            // 세로 모드
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(180))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(Constants.size.size130))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(180))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(Constants.size.size130))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let section = NSCollectionLayoutSection(group: group)

@@ -55,11 +55,8 @@ extension DetailNewsViewController {
 extension DetailNewsViewController {
     func navigationUI() {
         navigationController?.navigationBar.barTintColor = .background.white
-    
-        let titleLabel = UILabel()
-        titleLabel.text = self.newsTitle ?? ""
-        titleLabel.font = UIFont.toPretendard(size: Constants.size.size14, weight: .SemiBold)
-        titleLabel.textColor = .text.black
+
+        let titleLabel = CustomLabel(title: self.newsTitle ?? "", size: Constants.size.size14, weight: .SemiBold, color: .text.black)
         navigationItem.titleView = titleLabel
         
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

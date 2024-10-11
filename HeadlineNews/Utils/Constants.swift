@@ -56,6 +56,7 @@ struct Size {
     let size32: CGFloat = 32
     let size100: CGFloat = 100
     let size120: CGFloat = 120
+    let size130: CGFloat = 130
     let size300: CGFloat = 300
 }
 
