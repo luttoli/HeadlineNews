@@ -145,9 +145,9 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let article = newsItems[itemIndex]    
         
-        cell.title.text = article.title
-        cell.name.text = article.source.name ?? "Unknown Author"
-        cell.publishedAt.text = article.publishedAt?.toDate()?.toStringDetail()
+        cell.titleLabel.text = article.title
+        cell.nameLabel.text = article.source.name ?? "Unknown Author"
+        cell.publishedAtLabel.text = article.publishedAt?.toDate()?.toStringDetail()
 
         // 이미지 로딩
         if let imageUrl = article.urlToImage, let url = URL(string: imageUrl) {
@@ -165,9 +165,9 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         if selectedIndexPaths.contains(indexPath) {
-            cell.title.textColor = .text.red
+            cell.titleLabel.textColor = .text.red
         } else {
-            cell.title.textColor = .text.black
+            cell.titleLabel.textColor = .text.black
         }
         
         return cell

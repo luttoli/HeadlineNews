@@ -10,9 +10,9 @@ import UIKit
 class NewsCell: UICollectionViewCell {
     // MARK: - Components
     var urlImage = UIImageView()
-    var title = CustomLabel(title: "", size: Constants.size.size14, weight: .Regular, color: .text.black)
-    var name = CustomLabel(title: "", size: Constants.size.size12, weight: .Regular, color: .text.darkGray)
-    var publishedAt = CustomLabel(title: "", size: Constants.size.size12, weight: .Regular, color: .text.darkGray)
+    var titleLabel = CustomLabel(title: "", size: Constants.size.size14, weight: .Regular, color: .text.black)
+    var nameLabel = CustomLabel(title: "", size: Constants.size.size12, weight: .Regular, color: .text.darkGray)
+    var publishedAtLabel = CustomLabel(title: "", size: Constants.size.size12, weight: .Regular, color: .text.darkGray)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,9 +28,9 @@ class NewsCell: UICollectionViewCell {
 private extension NewsCell {
     func setUp() {
         contentView.addSubview(urlImage)
-        contentView.addSubview(title)
-        contentView.addSubview(name)
-        contentView.addSubview(publishedAt)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(publishedAtLabel)
         
         urlImage.snp.makeConstraints {
             $0.centerY.equalTo(contentView.safeAreaLayoutGuide)
@@ -43,20 +43,21 @@ private extension NewsCell {
         urlImage.layer.cornerRadius = Constants.radius.px6
         urlImage.contentMode = .scaleAspectFill
         
-        title.snp.makeConstraints {
+        titleLabel.snp.makeConstraints {
             $0.top.equalTo(urlImage.snp.top).offset(Constants.spacing.px4)
             $0.leading.equalTo(urlImage.snp.trailing).offset(Constants.spacing.px10)
             $0.trailing.equalTo(contentView.safeAreaLayoutGuide).offset(-Constants.spacing.px10)
         }
-        title.numberOfLines = 3
+        titleLabel.numberOfLines = 3
         
-        name.snp.makeConstraints {
+        nameLabel.snp.makeConstraints {
             $0.leading.equalTo(urlImage.snp.trailing).offset(Constants.spacing.px10)
             $0.trailing.equalTo(contentView.safeAreaLayoutGuide).offset(-Constants.spacing.px10)
-            $0.bottom.equalTo(publishedAt.snp.top)
+            $0.bottom.equalTo(publishedAtLabel.snp.top)
         }
+        nameLabel.numberOfLines = 1
         
-        publishedAt.snp.makeConstraints {
+        publishedAtLabel.snp.makeConstraints {
             $0.bottom.equalTo(urlImage.snp.bottom).offset(-Constants.spacing.px4)
             $0.leading.equalTo(urlImage.snp.trailing).offset(Constants.spacing.px10)
             $0.trailing.equalTo(contentView.safeAreaLayoutGuide).offset(-Constants.spacing.px10)
