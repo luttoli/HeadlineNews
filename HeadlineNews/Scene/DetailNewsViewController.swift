@@ -77,14 +77,3 @@ private extension DetailNewsViewController {
         }
     }
 }
-
-// MARK: - Method
-private extension DetailNewsViewController {
-
-}
-
-// MARK: - Delegate
-extension DetailNewsViewController {
-    
-}
-

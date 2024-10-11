@@ -10,7 +10,7 @@ import UIKit
 extension Date {
     func toStringDetail() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyMMdd HH:mm"
+        dateFormatter.dateFormat = "yy.MM.dd. HH:mm"
         dateFormatter.locale = Locale(identifier: "Asia/Seoul")
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
         return dateFormatter.string(from: self)

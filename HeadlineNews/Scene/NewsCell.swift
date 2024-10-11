@@ -10,9 +10,9 @@ import UIKit
 class NewsCell: UICollectionViewCell {
     // MARK: - Components
     var urlImage = UIImageView()
-    var title = CustomLabel(title: "", size: Constants.size.size14, weight: .SemiBold, color: .text.black)
-    var name = CustomLabel(title: "", size: Constants.size.size12, weight: .SemiBold, color: .text.darkGray)
-    var mark = CustomLabel(title: "•", size: Constants.size.size14, weight: .Regular, color: .text.darkGray)
+    var title = CustomLabel(title: "", size: Constants.size.size14, weight: .Regular, color: .text.black)
+    var name = CustomLabel(title: "", size: Constants.size.size12, weight: .Regular, color: .text.darkGray)
+    var mark = CustomLabel(title: "•", size: Constants.size.size12, weight: .Regular, color: .text.darkGray)
     var publishedAt = CustomLabel(title: "", size: Constants.size.size12, weight: .Regular, color: .text.darkGray)
     
     override init(frame: CGRect) {
