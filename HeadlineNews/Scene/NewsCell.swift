@@ -64,3 +64,25 @@ private extension NewsCell {
         }
     }
 }
+
+// MARK: - Method
+extension NewsCell {
+    func configure(with article: Article) {
+        titleLabel.text = article.title
+        nameLabel.text = article.source.name ?? "Unknown Author"
+        publishedAtLabel.text = article.publishedAt?.toDate()?.toStringDetail()
+
+        if let imageUrl = article.urlToImage, let url = URL(string: imageUrl) {
+            URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+                guard let self = self else { return }
+                if let data = data, error == nil {
+                    DispatchQueue.main.async {
+                        self.urlImage.image = UIImage(data: data)
+                    }
+                }
+            }.resume()
+        } else {
+            urlImage.image = UIImage(systemName: "newspaper")
+        }
+    }
+}

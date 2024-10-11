@@ -143,26 +143,7 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.backgroundColor = .cell.lightGray
         cell.layer.cornerRadius = Constants.radius.px10
         
-        let article = newsItems[itemIndex]    
-        
-        cell.titleLabel.text = article.title
-        cell.nameLabel.text = article.source.name ?? "Unknown Author"
-        cell.publishedAtLabel.text = article.publishedAt?.toDate()?.toStringDetail()
-
-        // 이미지 로딩
-        if let imageUrl = article.urlToImage, let url = URL(string: imageUrl) {
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data, error == nil {
-                    DispatchQueue.main.async {
-                        if let updateCell = collectionView.cellForItem(at: indexPath) as? NewsCell {
-                            updateCell.urlImage.image = UIImage(data: data)
-                        }
-                    }
-                }
-            }.resume()
-        } else {
-            cell.urlImage.image = UIImage(systemName: "newspaper")
-        }
+        cell.configure(with: newsItems[itemIndex])
         
         if selectedIndexPaths.contains(indexPath) {
             cell.titleLabel.textColor = .text.red
@@ -178,7 +159,14 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
         collectionView.reloadItems(at: [indexPath])
         
         let itemIndex = indexPath.section * 5 + indexPath.row
-        let article = newsItems[itemIndex]
-        webView(from: self, urlString: article.url ?? "", newsTitle: article.title ?? "")
+
+        if newsItems[itemIndex].title == "[Removed]" && newsItems[itemIndex].source.name == "[Removed]" {
+            let alert = UIAlertController(title: "알림", message: "이 뉴스는 삭제되었습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        } else {
+            webView(from: self, urlString: newsItems[itemIndex].url ?? "", newsTitle: newsItems[itemIndex].title ?? "")
+        }
+        
     }
 }
