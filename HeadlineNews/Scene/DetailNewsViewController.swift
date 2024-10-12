@@ -16,9 +16,19 @@ class DetailNewsViewController: UIViewController, WKNavigationDelegate {
     var newsTitle: String?
     
     // MARK: - Components
-    private var webView: WKWebView!
+    private var webView: WKWebView = {
+        let configuration = WKWebViewConfiguration()
+        configuration.allowsInlineMediaPlayback = true
+        configuration.allowsPictureInPictureMediaPlayback = true
+        let webView = WKWebView(frame: .zero, configuration: configuration)
+        webView.scrollView.isScrollEnabled = true
+        webView.scrollView.bounces = true
+        return webView
+    }()
     
-    init() {
+    init(url: URL?, title: String?) {
+        self.url = url
+        self.newsTitle = title
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -34,12 +44,6 @@ extension DetailNewsViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
-        let configuration = WKWebViewConfiguration()
-        configuration.allowsInlineMediaPlayback = true
-        configuration.allowsPictureInPictureMediaPlayback = true
-        webView = WKWebView(frame: view.bounds, configuration: configuration)
-        webView.navigationDelegate = self
         
         if let url = url {
             let request = URLRequest(url: url)
@@ -72,5 +76,6 @@ private extension DetailNewsViewController {
         webView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
+        webView.navigationDelegate = self
     }
 }

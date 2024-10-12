@@ -12,9 +12,6 @@ func webView(from viewController: UIViewController, urlString: String, newsTitle
         return
     }
     
-    let detailNewsViewController = DetailNewsViewController()
-    detailNewsViewController.url = url
-    detailNewsViewController.newsTitle = newsTitle
-    
+    let detailNewsViewController = DetailNewsViewController(url: url, title: newsTitle)
     viewController.navigationController?.pushViewController(detailNewsViewController, animated: true)
 }
