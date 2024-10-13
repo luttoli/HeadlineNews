@@ -150,7 +150,6 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
         } else {
             cell.titleLabel.textColor = .text.black
         }
-        
         return cell
     }
     
@@ -167,6 +166,5 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
         } else {
             webView(from: self, urlString: newsItems[itemIndex].url ?? "", newsTitle: newsItems[itemIndex].title ?? "")
         }
-        
     }
 }

@@ -35,7 +35,7 @@ private extension NewsCell {
         urlImage.snp.makeConstraints {
             $0.centerY.equalTo(contentView.safeAreaLayoutGuide)
             $0.leading.equalTo(contentView.safeAreaLayoutGuide).offset(Constants.spacing.px10)
-            $0.width.height.equalTo(Constants.size.size120)
+            $0.width.equalTo(Constants.size.size120)
             $0.height.equalTo(Constants.size.size100)
         }
         urlImage.tintColor = .image.darkGray
@@ -69,7 +69,7 @@ private extension NewsCell {
 extension NewsCell {
     func configure(with article: Article) {
         titleLabel.text = article.title
-        nameLabel.text = article.source.name ?? "Unknown Author"
+        nameLabel.text = article.source.name ?? ""
         publishedAtLabel.text = article.publishedAt?.toDate()?.toStringDetail()
 
         if let imageUrl = article.urlToImage, let url = URL(string: imageUrl) {

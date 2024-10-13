@@ -13,6 +13,9 @@
 		B898A56A2CB839C30054DE8D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898A5692CB839C30054DE8D /* String.swift */; };
 		B898A56D2CB905590054DE8D /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898A56C2CB905590054DE8D /* NewsService.swift */; };
 		B898A5702CB905970054DE8D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B898A56F2CB905970054DE8D /* Alamofire */; };
+		B898A5772CBA4FC70054DE8D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B898A5762CBA4FC70054DE8D /* RealmSwift */; };
+		B898A5792CBA500F0054DE8D /* NewsArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898A5782CBA500F0054DE8D /* NewsArticle.swift */; };
+		B898A5802CBAEB270054DE8D /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B898A5762CBA4FC70054DE8D /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B8C77ADD2CB4C3A0003FBB9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8C77AD42CB4C3A0003FBB9C /* Assets.xcassets */; };
 		B8C77ADF2CB4C3A0003FBB9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C77AD72CB4C3A0003FBB9C /* LaunchScreen.storyboard */; };
 		B8C77AE12CB4C3A0003FBB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77AD32CB4C3A0003FBB9C /* AppDelegate.swift */; };
@@ -29,12 +32,27 @@
 		B8C77B012CB6E014003FBB9C /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77B002CB6E014003FBB9C /* News.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B898A57E2CBAEA070054DE8D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B898A5802CBAEB270054DE8D /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B898A5632CB7A1E00054DE8D /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		B898A5652CB7CBE30054DE8D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		B898A5672CB836460054DE8D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B898A5692CB839C30054DE8D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		B898A56C2CB905590054DE8D /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		B898A5782CBA500F0054DE8D /* NewsArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticle.swift; sourceTree = "<group>"; };
 		B8C77ABB2CB4C395003FBB9C /* HeadlineNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadlineNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8C77AD32CB4C3A0003FBB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8C77AD42CB4C3A0003FBB9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B898A5772CBA4FC70054DE8D /* RealmSwift in Frameworks */,
 				B8C77AF42CB4D1AE003FBB9C /* SnapKit in Frameworks */,
 				B898A5702CB905970054DE8D /* Alamofire in Frameworks */,
 			);
@@ -73,10 +92,18 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		B898A57A2CBAEA070054DE8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B8C77AB22CB4C395003FBB9C = {
 			isa = PBXGroup;
 			children = (
 				B8C77ADC2CB4C3A0003FBB9C /* HeadlineNews */,
+				B898A57A2CBAEA070054DE8D /* Frameworks */,
 				B8C77ABC2CB4C395003FBB9C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -159,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C77B002CB6E014003FBB9C /* News.swift */,
+				B898A5782CBA500F0054DE8D /* NewsArticle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +201,7 @@
 				B8C77AB72CB4C395003FBB9C /* Sources */,
 				B8C77AB82CB4C395003FBB9C /* Frameworks */,
 				B8C77AB92CB4C395003FBB9C /* Resources */,
+				B898A57E2CBAEA070054DE8D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -182,6 +211,7 @@
 			packageProductDependencies = (
 				B8C77AF32CB4D1AE003FBB9C /* SnapKit */,
 				B898A56F2CB905970054DE8D /* Alamofire */,
+				B898A5762CBA4FC70054DE8D /* RealmSwift */,
 			);
 			productName = HeadlineNews;
 			productReference = B8C77ABB2CB4C395003FBB9C /* HeadlineNews.app */;
@@ -214,6 +244,7 @@
 			packageReferences = (
 				B8C77AF22CB4D1AE003FBB9C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B898A56E2CB905970054DE8D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B898A5732CBA4FC70054DE8D /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B8C77ABC2CB4C395003FBB9C /* Products */;
@@ -256,6 +287,7 @@
 				B8C77AF12CB4CA33003FBB9C /* Constants.swift in Sources */,
 				B898A5662CB7CBE30054DE8D /* WebView.swift in Sources */,
 				B8C77B012CB6E014003FBB9C /* News.swift in Sources */,
+				B898A5792CBA500F0054DE8D /* NewsArticle.swift in Sources */,
 				B898A5682CB836460054DE8D /* Date.swift in Sources */,
 				B8C77AF82CB4DAAE003FBB9C /* CustomLabel.swift in Sources */,
 			);
@@ -482,6 +514,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		B898A5732CBA4FC70054DE8D /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		B8C77AF22CB4D1AE003FBB9C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -497,6 +537,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B898A56E2CB905970054DE8D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		B898A5762CBA4FC70054DE8D /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B898A5732CBA4FC70054DE8D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		B8C77AF32CB4D1AE003FBB9C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
