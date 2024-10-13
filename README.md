@@ -1,8 +1,14 @@
 # HeadlineNews
 
+### Tech stack
+- SnapKit
+- Alamofire
+- Realm
+
 ### 세로모드, 가로모드 UI 설정하기
 
 - 한 개의 collectionView를 사용하여 가로모드 시 UICollectionViewCompositionalLayout 사용하여 섹션마다 다른 레이아웃 구성
+- 가로모드 시 cell 크기 300 * 120 설정
 - title, urlToImage, publishedAt, name을 사용하여 UI 구성
     * title: 세줄 이상 시 말줄임 처리
     * urlToImage: 이미지 url 표시, 이미지 없는 경우 기본 이미지 추가
@@ -10,7 +16,24 @@
     * name: 가로모드 + 세로모드에서도 긴 경우가 있어 한 줄 이상 시 말줄임 처리 
 
 <img src="https://github.com/user-attachments/assets/1d9bc8ef-fd59-4bb7-a3d3-4b00d9b6ff1a" height="300"/>
+
 ![IMG_0984](https://github.com/user-attachments/assets/76ecb59e-96ba-4e63-ad21-565439de0b63)
+
+```swift
+if isLandscape {
+    let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(Constants.size.size300), heightDimension: .absolute(Constants.size.size120))
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+    
+    let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(Constants.size.size300 * 5 + 10 * 4), heightDimension: .absolute(Constants.size.size120))
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    group.interItemSpacing = .fixed(10)
+    
+    let section = NSCollectionLayoutSection(group: group)
+    section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
+    section.orthogonalScrollingBehavior = .continuous
+    return section
+```
 
 ### alamofire 사용해서 데이터 받아오기 < Realm 사용해서 오프라인 시 저장된 데이터 사용하기
 
@@ -53,7 +76,7 @@ private func loadArticlesFromRealm() -> [Article] {
 ```
 <img src="https://github.com/user-attachments/assets/f3cc066e-6023-4f5e-b112-f2fefe40f248" height="300"/>
 
-### 한번 진입했던 cell의 title text 컬러 red로 변경하기
+### 한번 진입했던 cell의 title text 컬러 red로 변경하기 (DetailNewsVC < WebView, Navibar 세팅)
 
 ```swift
 if selectedIndexPaths.contains(indexPath) {
@@ -76,3 +99,9 @@ if newsItems[itemIndex].title == "[Removed]" && newsItems[itemIndex].source.name
 }
 ```
 <img src="https://github.com/user-attachments/assets/e75b715a-695f-4de0-abea-1bcf830f4120" height="300"/>
+
+### project setting
+- light 모드 설정
+- PretendardVariable font 적용
+- CustomLabel, Constants 설정으로 코드 수정 용이
+- Extension 세팅
