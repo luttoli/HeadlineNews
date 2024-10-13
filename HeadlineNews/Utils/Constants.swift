@@ -46,18 +46,12 @@ struct Size {
     let size10: CGFloat = 10
     let size12: CGFloat = 12
     let size14: CGFloat = 14
-    let size16: CGFloat = 16
     let size18: CGFloat = 18
     let size20: CGFloat = 20
-    let size22: CGFloat = 22
-    let size24: CGFloat = 24
     let size28: CGFloat = 28
     let size30: CGFloat = 30
-    let size32: CGFloat = 32
     let size100: CGFloat = 100
     let size120: CGFloat = 120
     let size130: CGFloat = 130
     let size300: CGFloat = 300
 }
-
-

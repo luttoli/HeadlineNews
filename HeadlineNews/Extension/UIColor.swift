@@ -8,17 +8,10 @@
 import UIKit
 
 extension UIColor {
-    static let main = MainColor()
     static let text = TextColor()
     static let image = ImageViewColor()
-    static let button = ButtonColor()
-    static let border = BorderColor()
     static let background = BackGroundColor()
     static let cell = CellColor()
-    
-    struct MainColor {
-        //
-    }
 
     struct TextColor {
         var black = UIColor.black
@@ -26,16 +19,8 @@ extension UIColor {
         var darkGray = UIColor.darkGray
     }
     
-    struct ButtonColor {
-        //
-    }
-    
     struct ImageViewColor {
         var darkGray = UIColor.darkGray
-    }
-    
-    struct BorderColor {
-        //
     }
     
     struct BackGroundColor {
